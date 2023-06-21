@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const RegistrationForm = () => {
   const [name, setName] = useState("");
@@ -21,29 +22,47 @@ const RegistrationForm = () => {
     alert(error);
   };
 
+  const inputStyle = {
+    width: "200px",
+  };
+
   return (
-    <div>
+    <div className="container">
       <h2>Registration Form with conditions</h2>
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Register</button>
+        <div className="form-group">
+          <label>Name:</label>
+          <input
+            type="text"
+            className="form-control"
+            style={inputStyle}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Email:</label>
+          <input
+            type="email"
+            className="form-control"
+            style={inputStyle}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Password:</label>
+          <input
+            type="password"
+            className="form-control"
+            style={inputStyle}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Register
+        </button>
       </form>
     </div>
   );
